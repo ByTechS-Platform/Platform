@@ -1,0 +1,418 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: '29LT Zawi';
+    background-color: #5843ed;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+/* Navigation */
+nav {
+    position: fixed;
+    top: 0;
+    right: 0%;
+    width: 100%;
+    background-color: #5843ed; /* Ensure the navbar has a solid background */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    z-index: 1000; /* Ensure the navbar stays on top of all content */
+}
+
+.logo {
+    margin-left: 10%;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 50px;
+    /* margin-right: 700px; */
+    margin-right: auto;
+}
+
+.nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.lang-switch {
+    display: flex;
+    gap: 15px;
+}
+
+.language-switch {
+    display: inline-flex;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Optional: add shadow */
+}
+
+.language-switch button {
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: transparent;
+    font-size: 14px;
+    font-weight: bold;
+    color: #ffffff;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    outline: none;
+}
+
+.language-switch .active {
+    background-color: #ffffff;
+    color: #5552E1; /* Change text color for the active button */
+}
+
+.language-switch button:not(.active):hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+
+
+/* Sections */
+.section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 150px 50px; /* Add padding-top to account for the fixed navbar */
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Content sections */
+.home .content, .contact .content, .follow .content {
+    max-width: 50%;
+    margin-bottom: 20%;
+}
+
+.home .content h1 {
+    font-size: 64px;
+    margin-bottom: 20px;
+}
+
+.home .content p {
+    font-size: 30px;
+    margin-left: 15%;
+}
+
+/* Progress Bar Animation */
+@keyframes progressAnimation {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+.progress-bar .progress {
+    background-color: #70e1f5;
+    height: 100%;
+    border-radius: 5px;
+    animation: progressAnimation 5s linear infinite; /* 5 seconds for one loop */
+}
+
+.progress-bar {
+    position: relative;
+    width: 349px;
+    height: 24px;
+    margin-top: 10%;
+    margin-left: 15%;
+    background-color: #b4b4fc;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+
+.progress-bar span {
+    position: relative;
+    bottom: 120%;
+    left: 105%;
+    margin-right: 40%;
+    font-size: 30px;
+}
+
+
+
+/* Notify Container Styling */
+.notify-container {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between the email input and the button */
+}
+
+.input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-left: 15%;
+}
+
+.email-input {
+    padding: 10px;
+    padding-left: 40px; /* Space for the icon */
+    border-radius: 5px;
+    border: 1px solid #44475a;
+    background-color: #ffffff;
+    color: #282a36;
+    font-size: 16px;
+    width: 0; /* Start with width 0 */
+    opacity: 0; /* Start with opacity 0 */
+    transition: width 0.4s ease-in-out, opacity 0.4s ease-in-out;
+}
+
+.email-icon {
+    position: absolute;
+    left: 10px;
+    width: 20px;
+    height: 20px;
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.notify-container:hover .email-input {
+    width: 230px; /* Expand the input on hover */
+    opacity: 1; /* Show the input on hover */
+}
+
+.notify-btn {
+    background-color: #b4b4fc;
+    color: #ffffff;
+    padding: 10px 30px;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.notify-btn:hover::before {
+    transform: translateX(0);
+}
+
+/* Illustration Styling */
+.illustration {
+    position: relative;
+    width: 100%;
+    max-width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom:auto ;
+}
+
+.shapes {
+    display: flex;
+    gap: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.shapes img {
+    width: 100px;
+    height: auto;
+}
+
+/* Contact Us Section */
+.contact {
+    background-color: #ffffff; /* White background for the entire contact section */
+    
+    color: #282a36; /* Adjust the text color to contrast with the white background */
+}
+
+.contact .content {
+    background-color: #5552E1; /* Ensure the background is white */
+    padding: 40px;
+    border-radius: 20px;
+    margin-right: 10%;
+    
+    max-width: 500px;
+    text-align: left;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Optional: add a subtle shadow for depth */
+}
+
+.contact h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+    color: #ffffff; /* Dark text color for better contrast */
+}
+
+.contact p {
+    margin-bottom: 30px;
+    font-size: 14px;
+    color: #ffffff; /* Slightly lighter text for the description */
+}
+
+.contact form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact .form-group {
+    display: flex;
+    gap: 15px;
+}
+
+.contact form input, .contact form textarea {
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #cccccc; /* Light border for input fields */
+    background-color: #f9f9f9; /* Light gray background for inputs */
+    color: #282a36;
+    font-size: 14px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+.contact form textarea {
+    resize: none;
+    height: 100px;
+}
+
+.contact form button {
+    background-color: #6272a4;
+    color: #ffffff;
+    padding: 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 16px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact form button:hover {
+    background-color: #5350a6;
+}
+
+/* Follow Us Section */
+.follow {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background-color: #5843ed;
+    padding: 80px;
+    color: #ffffff;
+    
+}
+
+.follow .content {
+    max-width: 50%;
+}
+
+.follow h2 {
+    margin-top: 50%;
+    font-size: 90px;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.follow .social-links {
+    display: flex;
+    gap: 80px;
+    margin-top: 20px;
+    margin-left: 7%;
+}
+
+.follow .social-links a img {
+    width: 50px;
+    height: 50px;
+    transition: transform 0.3s ease;
+}
+
+.follow .social-links a img:hover {
+    transform: scale(1.1);
+}
+
+.tweets-container {
+    display: flex;
+    flex-direction: column; /* Change to column to make the boxes stack vertically */
+    gap: 20px;
+    max-width: 100%;
+    width: 600px;
+    margin-right: auto;
+    
+}
+
+.tweet {
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 20px;
+    color: #000000;
+    
+    height: 334px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+.tweet p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.tweet p:first-child {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.tweet p:last-child {
+    text-align: right;
+    color: #888888;
+}
+
+.B1{
+    color: #32EDDF;
+}
+
+
+
+/* Side Navigation */
+.side-nav {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 1%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 1000; /* Ensures it stays on top of other elements */
+}
+
+.side-nav .circle {
+    width: 15px;
+    height: 15px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    opacity: 0.5;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.side-nav .circle.active {
+    opacity: 1;
+}
+
+.side-nav .circle.contact-active {
+    background-color: #5552E1;
+    opacity: 1; /* Ensure it's fully visible */
+}
+
+
+
+
+/* Footer */
+footer {
+    background-color: #44475a;
+    text-align: center;
+    padding: 20px 0;
+    color: #f8f8f2;
+}
