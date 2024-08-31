@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const progressNumber = document.getElementById('progress-number');
     const duration = 5000; // 5 seconds for a full cycle
 
-    // Function to update the active section in the side nav
     function changeActiveSection() {
         let index = sections.length;
 
@@ -14,7 +13,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         navLinks.forEach((link) => link.classList.remove("active", "contact-active"));
 
-        // Add specific class for contact section
         if (sections[index].id === 'contact') {
             navLinks.forEach((link) => link.classList.add("contact-active"));
         } else {
@@ -22,13 +20,25 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Function to toggle language selection
     function toggleLanguage() {
+        const lang = this.classList.contains('Eng') ? 'en' : 'ar';
+        const dir = lang === 'en' ? 'ltr' : 'rtl';
+
+        document.documentElement.setAttribute('lang', lang);
+        document.documentElement.setAttribute('dir', dir);
+
+        document.querySelectorAll('[data-en]').forEach((element) => {
+            if (lang === 'en') {
+                element.textContent = element.getAttribute('data-en');
+            } else {
+                element.textContent = element.getAttribute('data-ar');
+            }
+        });
+
         languageButtons.forEach(button => button.classList.remove('active'));
         this.classList.add('active');
     }
 
-    // Function to animate the progress bar and the number
     function animateProgressBar() {
         let startTime = null;
 
@@ -45,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (elapsedTime < duration) {
                 requestAnimationFrame(animateNumber);
             } else {
-                startTime = null; // Reset start time for infinite loop
+                startTime = null;
                 requestAnimationFrame(animateNumber);
             }
         }
@@ -53,13 +63,10 @@ document.addEventListener("DOMContentLoaded", function () {
         requestAnimationFrame(animateNumber);
     }
 
-    // Attach event listeners to language buttons
     languageButtons.forEach(button => button.addEventListener('click', toggleLanguage));
 
-    // Initial function calls
     changeActiveSection();
     window.addEventListener("scroll", changeActiveSection);
 
-    // Start the progress bar animation
     animateProgressBar();
 });
