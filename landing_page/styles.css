@@ -416,3 +416,322 @@ footer {
     padding: 20px 0;
     color: #000000;
 }
+
+/* Burger Menu Styling */
+/* .burger-menu {
+    display: none;
+    position: relative;
+    z-index: 1001;
+}
+
+.burger-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    cursor: pointer;
+}
+
+.burger-icon span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #ffffff;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.burger-links {
+    display: none;
+    flex-direction: column;
+    gap: 20px;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background-color: #5843ed;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.burger-links li {
+    list-style: none;
+}
+
+.burger-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.burger-icon.active span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.burger-icon.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.burger-icon.active span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+.burger-menu.active .burger-links {
+    display: flex;
+} */
+
+.burger-menu {
+    display: none; /* Hide by default */
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    flex-direction: column;
+    align-items: flex-end;
+    z-index: 1001;
+}
+
+.burger-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    cursor: pointer;
+}
+
+.burger-icon span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #ffffff;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.burger-links {
+    display: none;
+    flex-direction: column;
+    gap: 15px;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background-color: #5843ed;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    align-items: center;
+}
+
+.burger-links li {
+    list-style: none;
+    
+}
+
+.burger-links a, .burger-links button {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.language-switch {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.burger-icon.active span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.burger-icon.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.burger-icon.active span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+.burger-menu.active .burger-links {
+    display: flex;
+}
+
+/* Media Queries for Mobile Devices */
+/* Media Queries for Mobile Devices */
+@media (max-width: 768px) {
+    /* Hide the navigation bar */
+    /* nav {
+        display: none;
+    } */
+
+    .burger-menu {
+        display: flex; /* Show burger menu on mobile */
+        margin-top: 30px;
+      
+    }
+
+    .nav-links {
+        display: none; 
+    }
+
+    .language-switch {
+        display: none; /* Hide language switch in header on mobile */
+        
+    }
+
+    .burger-links .language-switch {
+        display: flex; /* Show language switch inside burger menu on mobile */
+    }
+
+    .logo {
+        width: 120px; /* Further reduce logo size on smaller screens */
+        margin-left: 80px;
+    }
+
+    /* Adjust the Home Section */
+    .home {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .home .content {
+        position: relative; 
+        max-width: 100%;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .home .content h1 {
+        font-size: 48px;
+    }
+
+    .home .content p {
+        font-size: 24px;
+        margin-left: 0;
+    }
+
+    /* Center the shapes and place them behind the progress bar */
+    .illustration {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative; /* Position relative for z-index stacking */
+        z-index: 1; /* Place the shapes behind the progress bar */
+    }
+
+    .illustration .shapes {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row; /* Align shapes horizontally */
+    }
+
+    .illustration .shapes img {
+        width: 100px; /* Make the shapes larger */
+        height: auto;
+    }
+
+    /* Position the progress bar on top of the shapes */
+    .progress-bar {
+        position: absolute;
+        top: 10%; /* Adjust the top position to place the progress bar on top of the image */
+        margin-top: 150px;
+        left: 40%;
+        transform: translateX(-50%);
+        width: 70%; /* Adjust width for mobile */
+        z-index: 2; /* Ensure the progress bar is on top of the shapes */
+    }
+
+    .progress-bar .progress {
+        height: 100%;
+        background-color: #70e1f5;
+        border-radius: 5px;
+    }
+
+    .progress-bar span {
+        font-size: 24px;
+        position:fixed;
+        top: 1px;
+        right: 0;
+    }
+
+    /* Adjust the Contact Section */
+    .contact .content {
+        margin: 0 auto;
+        max-width: 100%;
+    }
+
+    .contact .illustration {
+        display: none; /* Hide the shapes for the contact section */
+    }
+
+    /* Adjust the Follow Us Section */
+    .follow {
+        flex-direction: column; /* Stack elements vertically */
+        align-items: center;
+        padding: 50px 20px;
+    }
+
+    .follow .content {
+        text-align: center;
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .follow h2 {
+        font-size: 48px;
+    }
+
+    .follow .social-links {
+        justify-content: center;
+        margin-top: 10px;
+        margin-left: 0;
+        gap: 40px;
+    }
+    .follow .social-links a img {
+        width: 40px; /* Reduce the size of the logos */
+        height: 40px; /* Maintain aspect ratio */
+    }
+
+    .tweets-container {
+        max-width: 100%;
+        width: 317px;
+        padding: 5%;
+    }
+
+    .tweet {
+        width: 100%;
+        height: 162px;
+    }
+}
+
+/* Media Queries for Extra Small Devices */
+@media (max-width: 480px) {
+    .home .content h1 {
+        font-size: 36px;
+    }
+
+    .home .content p {
+        font-size: 20px;
+    }
+
+    .follow h2 {
+        font-size: 36px;
+    }
+
+    /* Adjust shape sizes for extra small devices */
+    .illustration .shapes img {
+        width: 80px; /* Smaller size for extra small devices */
+    }
+
+    .progress-bar {
+        width: 90%; /* Adjust width for smaller screens */
+        top: 5%; /* Adjust position for smaller screens */
+    }
+
+    .progress-bar span {
+        font-size: 16px;
+    }
+}

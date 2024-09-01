@@ -69,4 +69,13 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener("scroll", changeActiveSection);
 
     animateProgressBar();
+
+    // Burger Menu Toggle
+    const burgerIcon = document.querySelector('.burger-icon');
+    const burgerMenu = document.querySelector('.burger-menu');
+
+    burgerIcon.addEventListener('click', function () {
+        burgerIcon.classList.toggle('active');
+        burgerMenu.classList.toggle('active');
+    });
 });
