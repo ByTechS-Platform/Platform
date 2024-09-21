@@ -1,3 +1,16 @@
+@font-face {
+    font-family: "29LT Zawi";
+    src: url("assets/Fonts/alfont_com_29LTZawi-Regular.ttf") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "29LT ZawiBold";
+    src: url("assets/Fonts/alfont_com_29LTZawi-Bold.ttf") format("woff2");
+    font-weight: bold;
+    font-style: bold;
+}
+
 /* General Styles */
 body {
     margin: 0;
@@ -33,6 +46,7 @@ nav {
     gap: 50px;
     /* margin-right: 700px; */
     margin-right: auto;
+    margin-top: 30px;
 }
 
 .nav-links a {
@@ -81,10 +95,31 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 150px 50px; /* Add padding-top to account for the fixed navbar */
+    padding: 150px ; /* Add padding-top to account for the fixed navbar */
     min-height: 100vh;
     position: relative;
 }
+
+/* Styling for the 'COMING SOON ...' h1 element */
+h1[data-en="COMING SOON ..."] {
+    font-family: '29LT Zawi'; /* Use the custom font */
+    font-weight: 700; /* Bold weight */
+    line-height: 100px; /* Adjust line height */
+    text-align: center; /* Align text to the left */
+    
+    /* Layout properties */
+    width: 694px;
+    height: 132px;
+    opacity: 1; /* Initially hidden for animations if required */
+    transition: opacity 1s ease; /* Optional transition for opacity */
+}
+
+/* You can animate the opacity if you need it to fade in */
+h1[data-en="COMING SOON ..."].visible {
+    opacity: 1;
+}
+
+
 
 /* Content sections */
 .home .content, .contact .content, .follow .content {
@@ -95,6 +130,7 @@ nav {
 .home .content h1 {
     font-size: 64px;
     margin-bottom: 20px;
+    font-family: '29LT ZawiBold';
 }
 
 .home .content p {
@@ -116,14 +152,13 @@ nav {
     background-color: #70e1f5;
     height: 100%;
     border-radius: 5px;
-    animation: progressAnimation 5s linear infinite; /* 5 seconds for one loop */
+    animation: progressAnimation 5s linear infinite; 
 }
 
 .progress-bar {
     position: relative;
     width: 349px;
     height: 24px;
-    margin-top: 10%;
     margin-left: 15%;
     background-color: #b4b4fc;
     border-radius: 5px;
@@ -217,10 +252,43 @@ nav {
     z-index: 1;
 }
 
+
 .shapes img {
     width: 100px;
     height: auto;
 }
+
+
+.shape {
+    opacity: 0;
+    transform: translateY(50px); /* Move it slightly down initially */
+    animation: fadeInUp 1s ease forwards;
+}
+
+.shape-1 {
+    animation-delay: 0.5s; /* Delay for the first image */
+}
+
+.shape-2 {
+    animation-delay: 1s; /* Delay for the second image */
+}
+
+.shape-3 {
+    animation-delay: 1.5s; /* Delay for the third image */
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px); /* Start from below */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* End at original position */
+    }
+}
+
+
 
 /* Contact Us Section */
 .contact {
@@ -413,7 +481,7 @@ nav {
 footer {
     background-color: #f9f9f9;
     text-align: center;
-    padding: 20px 0;
+    padding: 5px 0;
     color: #000000;
 }
 
@@ -557,7 +625,6 @@ footer {
 }
 
 /* Media Queries for Mobile Devices */
-/* Media Queries for Mobile Devices */
 @media (max-width: 768px) {
     /* Hide the navigation bar */
     /* nav {
@@ -567,6 +634,7 @@ footer {
     .burger-menu {
         display: flex; /* Show burger menu on mobile */
         margin-top: 30px;
+        
       
     }
 
@@ -632,6 +700,38 @@ footer {
         width: 100px; /* Make the shapes larger */
         height: auto;
     }
+    .main-image img {
+    width: 100%;
+    height: auto;
+    max-width: 500px; /* Adjust the size as needed */
+    margin-bottom: 20px;
+}
+
+.shapes {
+    display: flex;
+    gap: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.shape {
+    width: 100px;
+    height: 150px;
+    background-size: cover;
+    background-position: center;
+}
+
+.shape1 {
+    background-image: url('/mnt/data/image.png'); /* Replace with your first shape image */
+}
+
+.shape2 {
+    background-image: url('path/to/your/second-image.png'); /* Replace with your second shape image */
+}
+
+.shape3 {
+    background-image: url('path/to/your/third-image.png'); /* Replace with your third shape image */
+}
 
     /* Position the progress bar on top of the shapes */
     .progress-bar {
