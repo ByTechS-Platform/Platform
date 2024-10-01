@@ -27,13 +27,9 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Function to toggle language (English/Arabic)
+    // Function to toggle language (English/Arabic) without changing text direction
     function toggleLanguage() {
         const lang = this.classList.contains('Eng') ? 'en' : 'ar';
-        const dir = lang === 'en' ? 'ltr' : 'rtl';
-
-        document.documentElement.setAttribute('lang', lang);
-        document.documentElement.setAttribute('dir', dir);
 
         // Update all elements that have language data attributes
         document.querySelectorAll('[data-en]').forEach((element) => {

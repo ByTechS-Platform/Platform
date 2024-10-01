@@ -693,7 +693,7 @@ footer {
         display: flex;
         justify-content: center;
         align-items: center;
-        flex-direction: row; /* Align shapes horizontally */
+        flex-direction: row; 
     }
 
     .illustration .shapes img {
@@ -722,7 +722,7 @@ footer {
 }
 
 .shape1 {
-    background-image: url('/mnt/data/image.png'); /* Replace with your first shape image */
+    background-image: url('/assets/4.png'); /* Replace with your first shape image */
 }
 
 .shape2 {
