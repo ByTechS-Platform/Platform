@@ -1,17 +1,23 @@
+/* =================================
+   Fonts
+================================= */
 @font-face {
     font-family: "29LT Zawi";
-    src: url("assets/Fonts/alfont_com_29LTZawi-Regular.ttf") format("woff2");
+    src: url("assets/Fonts/alfont_com_29LTZawi-Bold.ttf") format("woff2");
     font-weight: normal;
     font-style: normal;
 }
+
 @font-face {
     font-family: "29LT ZawiBold";
-    src: url("assets/Fonts/alfont_com_29LTZawi-Bold.ttf") format("woff2");
+    src: url("assets/Fonts/alfont_com_29LTZawi-Black-1.ttf") format("woff2");
     font-weight: bold;
     font-style: bold;
 }
 
-/* General Styles */
+/* =================================
+   General Styles
+================================= */
 body {
     margin: 0;
     font-family: '29LT Zawi';
@@ -20,31 +26,45 @@ body {
     overflow-x: hidden;
 }
 
-/* Navigation */
+/* =================================
+   Navigation
+================================= */
 nav {
     position: fixed;
     top: 0;
-    right: 0%;
+    right: 0;
     width: 100%;
-    background-color: #5843ed; /* Ensure the navbar has a solid background */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 50px;
+    padding: 20px;
     z-index: 1000; /* Ensure the navbar stays on top of all content */
+    /* Nav is transparent by default */
 }
 
-.logo {
+/* Navigation Links and Buttons */
+nav a,
+nav .language-switch button {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+/* Logo Styles */
+nav .logo {
     margin-left: 10%;
-    font-size: 28px;
-    font-weight: bold;
+    transition: 0.3s ease;
 }
 
+img.logo {
+    height: 95px;
+    width: 199px;
+}
+
+/* Navigation Links */
 .nav-links {
     list-style: none;
     display: flex;
     gap: 50px;
-    /* margin-right: 700px; */
     margin-right: auto;
     margin-top: 30px;
 }
@@ -55,90 +75,201 @@ nav {
     font-size: 18px;
 }
 
-.lang-switch {
-    display: flex;
-    gap: 15px;
-}
-
+/* Language Switch Container */
 .language-switch {
-    display: inline-flex;
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.05);
+    padding: 4px;
     border-radius: 25px;
     overflow: hidden;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Optional: add shadow */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: fit-content;
 }
 
+/* Language Switch Button */
 .language-switch button {
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
+    background: none;
     background-color: transparent;
+    border: none;
+    padding: 15px;
+    border-radius: 21px; /* Slightly less than container to account for padding */
+    cursor: pointer;
     font-size: 14px;
     font-weight: bold;
     color: #ffffff;
+    font-family: "29LT ZawiBold";
+    text-align: center;
     transition: background-color 0.3s ease, color 0.3s ease;
     outline: none;
 }
 
-.language-switch .active {
+/* Active Button State */
+.language-switch button.active {
     background-color: #ffffff;
-    color: #5552E1; /* Change text color for the active button */
+    color: #5552E1;
 }
 
+/* Hover State for Inactive Buttons */
 .language-switch button:not(.active):hover {
     background-color: rgba(255, 255, 255, 0.2);
 }
 
+/* Light Mode Navigation Styles */
+nav.light-mode a,
+nav.light-mode .burger-menu .burger-links a {
+    color: #000000;
+}
 
+nav.light-mode .burger-icon span {
+    background-color: #000000;
+}
 
-/* Sections */
+nav.light-mode .language-switch button {
+    color: #5552E1;
+}
+
+nav.light-mode .language-switch button.active {
+    color: #000000;
+}
+
+/* Burger Menu */
+.burger-menu {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    flex-direction: column;
+    align-items: flex-end;
+    z-index: 1001;
+}
+
+.burger-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    cursor: pointer;
+}
+
+.burger-icon span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #ffffff;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* Burger Menu Toggle Animation */
+.burger-menu.active .burger-icon span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+}
+
+.burger-menu.active .burger-icon span:nth-child(2) {
+    opacity: 0;
+}
+
+.burger-menu.active .burger-icon span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+}
+
+/* Burger Menu Links */
+.burger-links {
+    display: none;
+    flex-direction: column;
+    gap: 15px;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background-color: #5843ed;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    align-items: center;
+}
+
+.burger-links li {
+    list-style: none;
+}
+
+.burger-links a,
+.burger-links button {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.burger-menu.active .burger-links {
+    display: flex;
+}
+
+/* =================================
+   Sections
+================================= */
 .section {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 150px ; /* Add padding-top to account for the fixed navbar */
+    padding: 150px; /* Padding-top to account for the fixed navbar */
     min-height: 100vh;
     position: relative;
 }
 
-/* Styling for the 'COMING SOON ...' h1 element */
-h1[data-en="COMING SOON ..."] {
-    font-family: '29LT Zawi'; /* Use the custom font */
-    font-weight: 700; /* Bold weight */
-    line-height: 100px; /* Adjust line height */
-    text-align: center; /* Align text to the left */
-    
-    /* Layout properties */
-    width: 694px;
-    height: 132px;
-    opacity: 1; /* Initially hidden for animations if required */
-    transition: opacity 1s ease; /* Optional transition for opacity */
+/* T1 Class */
+.T1 {
+    font-family: '29LT Zawi';
+    font-weight: 400;
+    font-size: 4px;
+    width: 488px;
+    height: 34px;
+    margin-bottom: -70px;
+    margin-left: 250px;
+    line-height: 33.6px;
 }
 
-/* You can animate the opacity if you need it to fade in */
+/* Styling for 'COMING SOON ...' Heading */
+h1[data-en="COMING SOON ..."] {
+    font-family: '29LT Zawi'; /* Custom font */
+    font-weight: 700; /* Bold weight */
+    font-size: 120px;
+    line-height: 132px;
+    text-align: center;
+    width: 1000px;
+    height: 132px;
+    opacity: 1; /* Initially visible */
+    transition: opacity 1s ease; /* Optional opacity transition */
+}
+
+/* Visibility Class for Animation */
 h1[data-en="COMING SOON ..."].visible {
     opacity: 1;
 }
 
-
-
-/* Content sections */
-.home .content, .contact .content, .follow .content {
+/* =================================
+   Content Sections
+================================= */
+/* General Content Styles */
+.home .content,
+.contact .content,
+.follow .content {
     max-width: 50%;
     margin-bottom: 20%;
 }
 
+/* Home Content */
 .home .content h1 {
-    font-size: 64px;
     margin-bottom: 20px;
     font-family: '29LT ZawiBold';
 }
 
 .home .content p {
     font-size: 30px;
-    margin-left: 15%;
 }
 
-/* Progress Bar Animation */
+/* =================================
+   Progress Bar Animation
+================================= */
 @keyframes progressAnimation {
     0% {
         width: 0;
@@ -148,21 +279,21 @@ h1[data-en="COMING SOON ..."].visible {
     }
 }
 
-.progress-bar .progress {
-    background-color: #70e1f5;
-    height: 100%;
-    border-radius: 5px;
-    animation: progressAnimation 5s linear infinite; 
-}
-
 .progress-bar {
     position: relative;
     width: 349px;
     height: 24px;
-    margin-left: 15%;
-    background-color: #b4b4fc;
-    border-radius: 5px;
+    margin-left: 30%;
+    background-color: #8075F2;
+    border-radius: 80px;
     margin-bottom: 30px;
+}
+
+.progress-bar .progress {
+    background-color: #70e1f5;
+    height: 100%;
+    border-radius: 80px;
+    animation: progressAnimation 5s linear infinite;
 }
 
 .progress-bar span {
@@ -173,9 +304,9 @@ h1[data-en="COMING SOON ..."].visible {
     font-size: 30px;
 }
 
-
-
-/* Notify Container Styling */
+/* =================================
+   Notify Container Styling
+================================= */
 .notify-container {
     display: flex;
     align-items: center;
@@ -214,7 +345,7 @@ h1[data-en="COMING SOON ..."].visible {
 
 .notify-container:hover .email-input {
     width: 230px; /* Expand the input on hover */
-    opacity: 1; /* Show the input on hover */
+    opacity: 1;   /* Show the input on hover */
 }
 
 .notify-btn {
@@ -234,34 +365,36 @@ h1[data-en="COMING SOON ..."].visible {
     transform: translateX(0);
 }
 
-/* Illustration Styling */
+/* =================================
+   Illustration Styling
+================================= */
 .illustration {
     position: relative;
     width: 100%;
-    max-width: 40%;
+    max-width: 90%;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom:auto ;
+    margin-bottom: auto;
 }
 
 .shapes {
     display: flex;
-    gap: 20px;
+    gap: 50px;
     position: relative;
+    margin-left: 250px;
+    margin-top: -100px;
     z-index: 1;
 }
 
-
 .shapes img {
-    width: 100px;
-    height: auto;
+    width: 130px;
 }
 
-
+/* Shape Animations */
 .shape {
     opacity: 0;
-    transform: translateY(50px); /* Move it slightly down initially */
+    transform: translateY(50px); /* Initially shifted down */
     animation: fadeInUp 1s ease forwards;
 }
 
@@ -288,36 +421,34 @@ h1[data-en="COMING SOON ..."].visible {
     }
 }
 
-
-
-/* Contact Us Section */
+/* =================================
+   Contact Us Section
+================================= */
 .contact {
-    background-color: #ffffff; /* White background for the entire contact section */
-    
-    color: #282a36; /* Adjust the text color to contrast with the white background */
+    background-color: #ffffff; /* White background */
+    color: #282a36;            /* Dark text color */
 }
 
 .contact .content {
-    background-color: #5552E1; /* Ensure the background is white */
+    background-color: #5552E1;
     padding: 40px;
     border-radius: 20px;
     margin-right: 10%;
-    
     max-width: 500px;
     text-align: left;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Optional: add a subtle shadow for depth */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .contact h2 {
     font-size: 32px;
     margin-bottom: 10px;
-    color: #ffffff; /* Dark text color for better contrast */
+    color: #ffffff; /* White text for contrast */
 }
 
 .contact p {
     margin-bottom: 30px;
     font-size: 14px;
-    color: #ffffff; /* Slightly lighter text for the description */
+    color: #ffffff; /* White text */
 }
 
 .contact form {
@@ -331,11 +462,12 @@ h1[data-en="COMING SOON ..."].visible {
     gap: 15px;
 }
 
-.contact form input, .contact form textarea {
+.contact form input,
+.contact form textarea {
     padding: 15px;
     border-radius: 10px;
-    border: 1px solid #cccccc; /* Light border for input fields */
-    background-color: #f9f9f9; /* Light gray background for inputs */
+    border: 1px solid #cccccc; /* Light border */
+    background-color: #f9f9f9; /* Light gray background */
     color: #282a36;
     font-size: 14px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
@@ -362,7 +494,9 @@ h1[data-en="COMING SOON ..."].visible {
     background-color: #5350a6;
 }
 
-/* Follow Us Section */
+/* =================================
+   Follow Us Section
+================================= */
 .follow {
     display: flex;
     justify-content: space-between;
@@ -370,7 +504,6 @@ h1[data-en="COMING SOON ..."].visible {
     background-color: #5843ed;
     padding: 80px;
     color: #ffffff;
-    
 }
 
 .follow .content {
@@ -403,12 +536,11 @@ h1[data-en="COMING SOON ..."].visible {
 
 .tweets-container {
     display: flex;
-    flex-direction: column; /* Change to column to make the boxes stack vertically */
+    flex-direction: column;
     gap: 20px;
     max-width: 100%;
     width: 600px;
-    margin-right: auto;
-    
+    margin-right: 200px;
 }
 
 .tweet {
@@ -416,7 +548,6 @@ h1[data-en="COMING SOON ..."].visible {
     border-radius: 20px;
     padding: 20px;
     color: #000000;
-    
     height: 334px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     width: 100%;
@@ -437,22 +568,23 @@ h1[data-en="COMING SOON ..."].visible {
     color: #888888;
 }
 
-.B1{
+/* Highlighted Text */
+.B1 {
     color: #32EDDF;
 }
 
-
-
-/* Side Navigation */
+/* =================================
+   Side Navigation
+================================= */
 .side-nav {
     position: fixed;
     top: 50%;
-    transform: translateY(-50%);
     right: 1%;
+    transform: translateY(-50%);
     display: flex;
     flex-direction: column;
     gap: 20px;
-    z-index: 1000; /* Ensures it stays on top of other elements */
+    z-index: 1000; /* Ensure it stays on top */
 }
 
 .side-nav .circle {
@@ -471,13 +603,12 @@ h1[data-en="COMING SOON ..."].visible {
 
 .side-nav .circle.contact-active {
     background-color: #5552E1;
-    opacity: 1; /* Ensure it's fully visible */
+    opacity: 1; /* Fully visible */
 }
 
-
-
-
-/* Footer */
+/* =================================
+   Footer
+================================= */
 footer {
     background-color: #f9f9f9;
     text-align: center;
@@ -485,353 +616,31 @@ footer {
     color: #000000;
 }
 
-/* Burger Menu Styling */
-/* .burger-menu {
-    display: none;
-    position: relative;
-    z-index: 1001;
-}
-
-.burger-icon {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 30px;
-    height: 21px;
-    cursor: pointer;
-}
-
-.burger-icon span {
-    display: block;
-    width: 100%;
-    height: 3px;
-    background-color: #ffffff;
-    border-radius: 3px;
-    transition: all 0.3s ease;
-}
-
-.burger-links {
-    display: none;
-    flex-direction: column;
-    gap: 20px;
-    position: absolute;
-    top: 50px;
-    right: 0;
-    background-color: #5843ed;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.burger-links li {
-    list-style: none;
-}
-
-.burger-links a {
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 18px;
-}
-
-.burger-icon.active span:nth-child(1) {
-    transform: translateY(9px) rotate(45deg);
-}
-
-.burger-icon.active span:nth-child(2) {
-    opacity: 0;
-}
-
-.burger-icon.active span:nth-child(3) {
-    transform: translateY(-9px) rotate(-45deg);
-}
-
-.burger-menu.active .burger-links {
-    display: flex;
-} */
-
-.burger-menu {
-    display: none; /* Hide by default */
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    flex-direction: column;
-    align-items: flex-end;
-    z-index: 1001;
-}
-
-.burger-icon {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 30px;
-    height: 21px;
-    cursor: pointer;
-}
-
-.burger-icon span {
-    display: block;
-    width: 100%;
-    height: 3px;
-    background-color: #ffffff;
-    border-radius: 3px;
-    transition: all 0.3s ease;
-}
-
-.burger-links {
-    display: none;
-    flex-direction: column;
-    gap: 15px;
-    position: absolute;
-    top: 50px;
-    right: 0;
-    background-color: #5843ed;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    align-items: center;
-}
-
-.burger-links li {
-    list-style: none;
-    
-}
-
-.burger-links a, .burger-links button {
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 18px;
-}
-
-.language-switch {
-    display: flex;
-    flex-direction: row;
-    gap: 5px;
-}
-
-.burger-icon.active span:nth-child(1) {
-    transform: translateY(9px) rotate(45deg);
-}
-
-.burger-icon.active span:nth-child(2) {
-    opacity: 0;
-}
-
-.burger-icon.active span:nth-child(3) {
-    transform: translateY(-9px) rotate(-45deg);
-}
-
-.burger-menu.active .burger-links {
-    display: flex;
-}
-
-/* Media Queries for Mobile Devices */
-@media (max-width: 768px) {
-    /* Hide the navigation bar */
-    /* nav {
-        display: none;
-    } */
-
-    .burger-menu {
-        display: flex; /* Show burger menu on mobile */
-        margin-top: 30px;
-        
-      
-    }
-
+/* =================================
+   Media Queries
+================================= */
+/* Mobile Devices */
+@media only screen and (max-width: 600px) {
+    /* Hide navigation links and show burger menu */
     .nav-links {
-        display: none; 
+        display: none;
     }
-
-    .language-switch {
-        display: none; /* Hide language switch in header on mobile */
-        
-    }
-
-    .burger-links .language-switch {
-        display: flex; /* Show language switch inside burger menu on mobile */
-    }
-
-    .logo {
-        width: 120px; /* Further reduce logo size on smaller screens */
-        margin-left: 80px;
-    }
-
-    /* Adjust the Home Section */
-    .home {
+    .burger-menu {
         display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .home .content {
-        position: relative; 
-        max-width: 100%;
-        text-align: center;
-        margin-bottom: 20px;
-    }
-
-    .home .content h1 {
-        font-size: 48px;
-    }
-
-    .home .content p {
-        font-size: 24px;
-        margin-left: 0;
-    }
-
-    /* Center the shapes and place them behind the progress bar */
-    .illustration {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative; /* Position relative for z-index stacking */
-        z-index: 1; /* Place the shapes behind the progress bar */
-    }
-
-    .illustration .shapes {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: row; 
-    }
-
-    .illustration .shapes img {
-        width: 100px; /* Make the shapes larger */
-        height: auto;
-    }
-    .main-image img {
-    width: 100%;
-    height: auto;
-    max-width: 500px; /* Adjust the size as needed */
-    margin-bottom: 20px;
-}
-
-.shapes {
-    display: flex;
-    gap: 20px;
-    position: relative;
-    z-index: 1;
-}
-
-.shape {
-    width: 100px;
-    height: 150px;
-    background-size: cover;
-    background-position: center;
-}
-
-.shape1 {
-    background-image: url('/assets/4.png'); /* Replace with your first shape image */
-}
-
-.shape2 {
-    background-image: url('path/to/your/second-image.png'); /* Replace with your second shape image */
-}
-
-.shape3 {
-    background-image: url('path/to/your/third-image.png'); /* Replace with your third shape image */
-}
-
-    /* Position the progress bar on top of the shapes */
-    .progress-bar {
-        position: absolute;
-        top: 10%; /* Adjust the top position to place the progress bar on top of the image */
-        margin-top: 150px;
-        left: 40%;
-        transform: translateX(-50%);
-        width: 70%; /* Adjust width for mobile */
-        z-index: 2; /* Ensure the progress bar is on top of the shapes */
-    }
-
-    .progress-bar .progress {
-        height: 100%;
-        background-color: #70e1f5;
-        border-radius: 5px;
-    }
-
-    .progress-bar span {
-        font-size: 24px;
-        position:fixed;
-        top: 1px;
-        right: 0;
-    }
-
-    /* Adjust the Contact Section */
-    .contact .content {
-        margin: 0 auto;
-        max-width: 100%;
-    }
-
-    .contact .illustration {
-        display: none; /* Hide the shapes for the contact section */
-    }
-
-    /* Adjust the Follow Us Section */
-    .follow {
-        flex-direction: column; /* Stack elements vertically */
-        align-items: center;
-        padding: 50px 20px;
-    }
-
-    .follow .content {
-        text-align: center;
-        max-width: 100%;
-        margin-bottom: 20px;
-    }
-
-    .follow h2 {
-        font-size: 48px;
-    }
-
-    .follow .social-links {
-        justify-content: center;
-        margin-top: 10px;
-        margin-left: 0;
-        gap: 40px;
-    }
-    .follow .social-links a img {
-        width: 40px; /* Reduce the size of the logos */
-        height: 40px; /* Maintain aspect ratio */
-    }
-
-    .tweets-container {
-        max-width: 100%;
-        width: 317px;
-        padding: 5%;
-    }
-
-    .tweet {
-        width: 100%;
-        height: 162px;
     }
 }
 
-/* Media Queries for Extra Small Devices */
-@media (max-width: 480px) {
-    .home .content h1 {
-        font-size: 36px;
-    }
+/* Tablets */
+@media only screen and (min-width: 601px) and (max-width: 960px) {
+    /* Styles for tablets */
+}
 
-    .home .content p {
-        font-size: 20px;
-    }
+/* Small Desktops */
+@media only screen and (min-width: 961px) and (max-width: 1280px) {
+    /* Styles for small desktops */
+}
 
-    .follow h2 {
-        font-size: 36px;
-    }
-
-    /* Adjust shape sizes for extra small devices */
-    .illustration .shapes img {
-        width: 80px; /* Smaller size for extra small devices */
-    }
-
-    .progress-bar {
-        width: 90%; /* Adjust width for smaller screens */
-        top: 5%; /* Adjust position for smaller screens */
-    }
-
-    .progress-bar span {
-        font-size: 16px;
-    }
+/* Large Desktops */
+@media only screen and (min-width: 1281px) {
+    /* Styles for large desktops */
 }
