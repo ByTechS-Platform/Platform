@@ -495,9 +495,9 @@ h1[data-en="COMING SOON ..."].visible {
 }
 
 /* =================================
-   Follow Us Section
+   News Section
 ================================= */
-.follow {
+.news {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -551,6 +551,76 @@ h1[data-en="COMING SOON ..."].visible {
     height: 334px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     width: 100%;
+}
+
+.tweet p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.tweet p:first-child {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.tweet p:last-child {
+    text-align: right;
+    color: #888888;
+}
+
+/* Highlighted Text */
+.B1 {
+    color: #32EDDF;
+}
+
+/* =================================
+   Follow Us Section
+================================= */
+.follow {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background-color: #5843ed;
+    padding: 80px;
+    color: #ffffff;
+}
+
+.follow .content {
+    max-width: 50%;
+}
+
+.follow h2 {
+    margin-top: 50%;
+    font-size: 90px;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.follow .social-links {
+    display: flex;
+    gap: 80px;
+    margin-top: 20px;
+    margin-left: 7%;
+}
+
+.follow .social-links a img {
+    width: 50px;
+    height: 50px;
+    transition: transform 0.3s ease;
+}
+
+.follow .social-links a img:hover {
+    transform: scale(1.1);
+}
+
+.follow-image {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 100%;
+    width: 600px;
+    margin-right: 200px;
+    border-radius: 20px;
 }
 
 .tweet p {
