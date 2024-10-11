@@ -83,3 +83,33 @@ document.addEventListener("DOMContentLoaded", function () {
         burgerMenu.classList.toggle('active');
     });
 });
+
+// Initialize EmailJS with your User ID
+(function () {
+    emailjs.init("E605m3_HIompvEY5J"); // Your EmailJS User ID
+})();
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Ensure the DOM is fully loaded before adding the event listener
+
+    const form = document.getElementById('contact-form');
+    form.addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent the form from reloading the page
+
+        // Log the form submission event to ensure this is triggered
+        console.log('Form submission event captured.');
+
+        // Send the form data using EmailJS
+        emailjs.sendForm('service_8ejml3s', 'template_ax08khh', this)
+            .then(function (response) {
+                console.log('SUCCESS!', response.status, response.text);
+                alert("Message sent successfully!");
+            }, function (error) {
+                console.error('FAILED...', error);
+                alert("Message failed to send. Please try again.");
+            });
+    });
+});
+
+
+
