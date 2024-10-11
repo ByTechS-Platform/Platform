@@ -578,8 +578,9 @@ h1[data-en="COMING SOON ..."].visible {
 ================================= */
 .follow {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     background-color: #5843ed;
     padding: 80px;
     color: #ffffff;
@@ -619,7 +620,10 @@ h1[data-en="COMING SOON ..."].visible {
     gap: 20px;
     max-width: 100%;
     width: 600px;
-    margin-right: 200px;
+    margin-right: 100px;
+}
+
+.follow-image img {
     border-radius: 20px;
 }
 
