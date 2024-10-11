@@ -1,73 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Basic Meta Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bytechs Landing Page</title>
+    
+    <!-- External Stylesheet -->
     <link rel="stylesheet" href="styles.css">
+    
+    <!-- External JavaScript -->
     <script src="script.js"></script>
 </head>
 <body>
-    <!-- Home Section -->
-    <section id="home" class="section home">
-        <nav>
-            <img src="assets/logo.png" class="logo" alt="logo">
-            <!-- Burger Menu -->
-            <div class="burger-menu">
-                <div class="burger-icon">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-                <ul class="burger-links">
-                    <li><a href="#home" data-en="Home" data-ar="الرئيسية">Home</a></li>
-                    <li><a href="#contact" data-en="Contact Us" data-ar="اتصل بنا">Contact Us</a></li>
-                    <li><a href="#follow" data-en="Follow Us" data-ar="تابعنا">Follow Us</a></li>
+    <!-- =========================
+         Navigation Bar
+    ============================== -->
+    <nav>
+        <!-- Logo -->
+        <img src="assets/logo.png" class="logo" alt="Bytechs Logo">
+        
+        <!-- Navigation Links for Desktop -->
+        <ul class="nav-links">
+            <li><a href="#home" data-en="Home" data-ar="الرئيسية">Home</a></li>
+            <li><a href="#contact" data-en="Contact Us" data-ar="اتصل بنا">Contact Us</a></li>
+            <li><a href="#follow" data-en="Follow Us" data-ar="تابعنا">Follow Us</a></li>
+        </ul>
+        
+        <!-- Language Switch -->
+        <div class="language-switch">
+            <button class="Eng active" onclick="toggleLanguageManually('en')">ENGLISH</button>
+            <button class="AR" onclick="toggleLanguageManually('ar')">عــربـي</button>
+            <noscript>Please enable JavaScript to switch languages</noscript>
+        </div>
+        
+        <!-- Burger Menu for Mobile -->
+        <div class="burger-menu">
+            <!-- Burger Icon -->
+            <div class="burger-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <!-- Navigation Links for Mobile -->
+            <ul class="burger-links">
+                <li><a href="#home" data-en="Home" data-ar="الرئيسية">Home</a></li>
+                <li><a href="#contact" data-en="Contact Us" data-ar="اتصل بنا">Contact Us</a></li>
+                <li><a href="#follow" data-en="Follow Us" data-ar="تابعنا">Follow Us</a></li>
+                <!-- Language Switch inside Burger Menu -->
+                <li>
                     <div class="language-switch">
                         <button class="Eng active">ENGLISH</button>
                         <button class="AR">عربي</button>
                     </div>
-                </ul>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#home" data-en="Home" data-ar="الرئيسية">Home</a></li>
-                <li><a href="#contact" data-en="Contact Us" data-ar="اتصل بنا">Contact us</a></li>
-                <li><a href="#follow" data-en="Follow Us" data-ar="تابعنا">Follow us</a></li>
+                </li>
             </ul>
-            <div class="language-switch">
-                <button class="Eng active">ENGLISH</button>
-                <button class="AR">عربي</button>
-            </div>
-        </nav>        
+        </div>
+    </nav>
+
+    <!-- =========================
+         Home Section
+    ============================== -->
+    <section id="home" class="section home">
         <div class="content">
             <p class="T1" data-en="Creating The Future Within" data-ar="خلق المستقبل من الداخل">Creating The Future Within</p>
-            <h1 data-en="COMING SOON ..." data-ar="قريباً ...">COMING SOON ...</h1>
+            <h1 data-en="COMING SOON ..." data-ar="قريباً ...">COMING SOON •••</h1>
             <div class="progress-bar">
                 <div class="progress"></div>
                 <span id="progress-number">0%</span>
             </div>
-            
         </div>
-        <!-- <div class="illustration">
-            <div class="shapes">
-                <img src="assets/1G.png" alt="Shape 1">
-                <img src="assets/2G.png" alt="Shape 2">
-                <img src="assets/3G.png" alt="Shape 3">
-            </div>
-        </div> -->
+
+        <!-- Illustration Images -->
         <div class="illustration">
             <div class="shapes">
-                <img src="assets/Screenshot 1446-03-28 at 2.51.54 PM.png"Shape 1" class="shape shape-1">
-                <img src="assets/Screenshot 1446-03-28 at 2.54.06 PM.png" alt="Shape 2" class="shape shape-2">
-                <img src="assets/Screenshot 1446-03-28 at 2.55.04 PM.png" alt="Shape 3" class="shape shape-3">
+                <img src="assets/shapesHomePage1.png" alt="Shape 1" class="shape shape-1">
+                <img src="assets/shapesHomePage2.png" alt="Shape 2" class="shape shape-2">
+                <img src="assets/shapesHomePage3.png" alt="Shape 3" class="shape shape-3">
             </div>
         </div>
-              
-        <!-- <div class="illustration">
-            <div class="shapes1">
-                <img src="assets/S2.png" alt="Combined Shapes">
-            </div>
-        </div> -->
+
+        <!-- Side Navigation Dots -->
         <div class="side-nav">
             <a href="#home"><div class="circle active"></div></a>
             <a href="#contact"><div class="circle"></div></a>
@@ -75,18 +88,22 @@
         </div>
     </section>
     
-    <!-- Contact Us Section -->
+    <!-- =========================
+         Contact Us Section
+    ============================== -->
     <section id="contact" class="section contact">
+        <!-- Illustration Images -->
         <div class="illustration">
             <div class="shapes">
-                <img src="assets/Screenshot 1446-03-28 at 2.56.34 PM.png" alt="Shape 1">
-                <img src="assets/Screenshot 1446-03-28 at 2.56.41 PM.png" alt="Shape 2">
-                <img src="assets/Screenshot 1446-03-28 at 2.56.47 PM.png" alt="Shape 3">
+                <img src="assets/shapesContactPage1.png" alt="Shape 1">
+                <img src="assets/shapesContactPage2.png" alt="Shape 2">
+                <img src="assets/shapesContactPage3.png" alt="Shape 3">
             </div>
         </div>
+        
         <div class="content">
             <h2 data-en="Contact Us" data-ar="اتصل بنا">Contact Us</h2>
-            <p data-en="Reach out to get more information about BytechS at: BytechS.contact@bytechs.net" data-ar="اتصل للحصول على مزيد من المعلومات حول BytechS على: BytechS.contact@bytechs.net">Reach out to get more information about BytechS at BytechS.net@bytechs.net</p>
+            <p data-en="Reach out to get more information about BytechS at: BytechS.contact@bytechs.net" data-ar="اتصل للحصول على مزيد من المعلومات حول BytechS على: BytechS.contact@bytechs.net">Reach out to get more information about BytechS at: BytechS.contact@bytechs.net</p>
             <form action="#">
                 <div class="form-group">
                     <input type="text" placeholder="Your Name" required data-en="Your Name" data-ar="اسمك">
@@ -104,7 +121,9 @@
         </div>
     </section>
     
-    <!-- Follow Us Section -->
+    <!-- =========================
+         Follow Us Section
+    ============================== -->
     <section id="follow" class="section follow">
         <div class="content">
             <h2 data-en="Follow Us for More" data-ar="تابعنا للمزيد">Follow Us for More <span class="B1" data-en="Updates" data-ar="التحديثات">Updates</span></h2>
@@ -123,6 +142,7 @@
                 </a>
             </div>
         </div>
+        <!-- Tweets Section -->
         <div class="tweets-container">
             <div class="tweet">
                 <p data-en="Bytechs | بايتكس" data-ar="بايتكس | Bytechs">Bytechs | بايتكس</p>
@@ -135,10 +155,13 @@
                 <p data-en="05:45 AM - Oct 13, 2024" data-ar="05:45 صباحًا - 13 أكتوبر 2024">05:45 AM - Oct 13, 2024</p>
             </div>
         </div>
-        
     </section>
+    
+    <!-- =========================
+         Footer
+    ============================== -->
     <footer>
-        <p data-en="© 2024 Bytechs. All rights reserved." data-ar="© 2024 بايتكس. جميع الحقوق محفوظة.">© 2024 ByTechS. All rights reserved.</p>
+        <p data-en="© 2024 Bytechs. All rights reserved." data-ar="© 2024 بايتكس. جميع الحقوق محفوظة.">© 2024 Bytechs. All rights reserved.</p>
     </footer>
     
 </body>
