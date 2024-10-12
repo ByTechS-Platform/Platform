@@ -517,8 +517,12 @@ h1[data-en="COMING SOON ..."].visible {
     max-width: 100%;
     width: 600px;
     margin-right: 200px;
-    
 }
+
+.news-title {
+    font-size: 35px;
+}
+
 .follow h2 {
     margin-top: 50%;
     font-size: 90px;
@@ -546,7 +550,7 @@ h1[data-en="COMING SOON ..."].visible {
     margin-bottom: 20px;
 }
 
-.event span {
+.event-tag {
     padding: 20px;
     padding-top: 5px;
     padding-bottom: 5px;
