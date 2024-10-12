@@ -507,9 +507,18 @@ h1[data-en="COMING SOON ..."].visible {
 }
 
 .follow .content {
-    max-width: 50%;
+    max-width: 70%;
 }
 
+.news-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 100%;
+    width: 600px;
+    margin-right: 200px;
+    
+}
 .follow h2 {
     margin-top: 50%;
     font-size: 90px;
@@ -517,60 +526,52 @@ h1[data-en="COMING SOON ..."].visible {
     color: #ffffff;
 }
 
-.follow .social-links {
-    display: flex;
-    gap: 80px;
-    margin-top: 20px;
-    margin-left: 7%;
-}
-
-.follow .social-links a img {
-    width: 50px;
-    height: 50px;
-    transition: transform 0.3s ease;
-}
-
-.follow .social-links a img:hover {
-    transform: scale(1.1);
-}
-
-.tweets-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    max-width: 100%;
-    width: 600px;
-    margin-right: 200px;
-}
-
-.tweet {
+.event {
     background-color: #ffffff;
     border-radius: 20px;
     padding: 20px;
+    padding-bottom: 0px;
     color: #000000;
-    height: 334px;
+    height: 450px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     width: 100%;
 }
 
-.tweet p {
-    margin: 0;
+.event img {
+    border-radius: 20px;
+    margin: -20px;
+    width: 106.6%;
+    height: 40%;
+    object-fit: cover; 
+    margin-bottom: 20px;
+}
+
+.event span {
+    padding: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 21px; 
+    background-color: #5552E1;
+    color: white;
+    font-size: 11px;
+}
+
+.event-title {
+    color: #5552E1;
+    font-size: 18px;
+    margin-top: 25px;
+}
+
+.event-content {
     font-size: 14px;
+    line-height: 1.5;
+    text-align: justify;
 }
 
-.tweet p:first-child {
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.tweet p:last-child {
+.event-date {
     text-align: right;
     color: #888888;
-}
-
-/* Highlighted Text */
-.B1 {
-    color: #32EDDF;
+    font-size: 11px;
 }
 
 /* =================================
@@ -588,9 +589,10 @@ h1[data-en="COMING SOON ..."].visible {
 
 .follow .content {
     max-width: 50%;
+    margin-left: 200px;
 }
 
-.follow h2 {
+.follow p {
     margin-top: 50%;
     font-size: 90px;
     margin-bottom: 20px;
@@ -619,27 +621,13 @@ h1[data-en="COMING SOON ..."].visible {
     flex-direction: column;
     gap: 20px;
     max-width: 100%;
-    width: 600px;
-    margin-right: 100px;
+    width: 900px;
+    margin-right: 200px;
 }
 
 .follow-image img {
     border-radius: 20px;
-}
-
-.tweet p {
-    margin: 0;
-    font-size: 14px;
-}
-
-.tweet p:first-child {
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.tweet p:last-child {
-    text-align: right;
-    color: #888888;
+    object-fit: cover;
 }
 
 /* Highlighted Text */
