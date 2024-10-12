@@ -4,12 +4,11 @@
     <!-- Basic Meta Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bytechs Landing Page</title>
+    <title>ByTechS</title>
     
     <!-- External Stylesheet -->
     <link rel="stylesheet" href="styles.css">
-    
-    <!-- External JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
     <script src="script.js"></script>
 </head>
 <body>
@@ -22,9 +21,16 @@
         
         <!-- Navigation Links for Desktop -->
         <ul class="nav-links">
+<<<<<<< HEAD:landing_page/index.html
             <li><a href="#home" data-en="SOON •••" data-ar="قريباً">SOON •••</a></li>
             <li><a href="#contact" data-en="SOON •••" data-ar=" قريباً">SOON •••</a></li>
             <li><a href="#follow" data-en="SOON •••" data-ar="قريباً">SOON •••</a></li>
+=======
+            <li><a href="#home" data-en="Home" data-ar="الرئيسية">Home</a></li>
+            <li><a href="#contact" data-en="Contact Us" data-ar="اتصل بنا">Contact Us</a></li>
+            <li><a href="#news" data-en="News" data-ar="الأخبار">News</a></li>
+            <li><a href="#follow" data-en="Follow Us" data-ar="تابعنا">Follow Us</a></li>
+>>>>>>> fe73211d31dd552492e593d550c66685106f5246:index.html
         </ul>
         
         <!-- Language Switch -->
@@ -84,6 +90,7 @@
         <div class="side-nav">
             <a href="#home"><div class="circle active"></div></a>
             <a href="#contact"><div class="circle"></div></a>
+            <a href="#news"><div class="circle"></div></a>
             <a href="#follow"><div class="circle"></div></a>
         </div>
     </section>
@@ -103,45 +110,72 @@
         
         <!-- <div class="content">
             <h2 data-en="Contact Us" data-ar="اتصل بنا">Contact Us</h2>
-            <p data-en="Reach out to get more information about BytechS at: BytechS.contact@bytechs.net" data-ar="اتصل للحصول على مزيد من المعلومات حول BytechS على: BytechS.contact@bytechs.net">Reach out to get more information about BytechS at: BytechS.contact@bytechs.net</p>
-            <form action="#">
+            <p data-en="Reach out to get more information about BytechS at: BytechS.contact@bytechs.net" data-ar="اتصل للحصول على مزيد من المعلومات حول BytechS على: BytechS.contact@bytechs.net">Reach out to get more information about BytechS at BytechS.net@bytechs.net</p>
+            <form id="contact-form">
                 <div class="form-group">
-                    <input type="text" placeholder="Your Name" required data-en="Your Name" data-ar="اسمك">
-                    <input type="email" placeholder="Your Email" required data-en="Your Email" data-ar="بريدك الالكتروني">
+                    <input type="text" name="name" placeholder="Your Name" required data-en="Your Name" data-ar="اسمك">
+                    <input type="email" name="email1" placeholder="Your Email" required data-en="Your Email" data-ar="بريدك الالكتروني">
                 </div>
                 <div class="form-group">
-                    <input type="text" placeholder="Phone Number" required data-en="Phone Number" data-ar="رقم الهاتف">
-                    <input type="text" placeholder="Subject" required data-en="Subject" data-ar="الموضوع">
+                    <input type="text" name="phone" placeholder="Phone Number" required data-en="Phone Number" data-ar="رقم الهاتف">
+                    <input type="text" name="subject" placeholder="Subject" required data-en="Subject" data-ar="الموضوع">
                 </div>
                 <div class="form-group">
-                    <textarea placeholder="Message..." required data-en="Message..." data-ar="رسالة..."></textarea>
+                    <textarea name="message" placeholder="Message..." required data-en="Message..." data-ar="رسالة..."></textarea>
                 </div>
                 <button type="submit" data-en="SUBMIT MESSAGE" data-ar="أرسل الرسالة">SUBMIT MESSAGE</button>
             </form>
         </div> -->
     </section>
     
+     <!-- =========================
+         News Section
+    ============================== -->
+    <section id="news" class="section news">
+        <div class="news-container">
+            <span class="news-title" data-en="BytechS News" data-ar="أخبار بايتكس"> ByTechS News </span>
+            <div class="event">
+                <img src="images/follow-image.JPG">
+                <span class="event-tag" data-en="Initiatives" data-ar="مبادرات"> مبادرات</span>
+                <p class="event-title" data-en="" data-ar="">"مبادرة برنامج "الذكاء الاصطناعي للجميع</p>
+                <p class="event-content" data-en="" data-ar="">نظمت مبادرة بايتكس مؤخرًا سلسلة من الورش التدريبية التي تستهدف المتقاعدين، وذلك ضمن برنامج “الذكاء الاصطناعي للجميع” الذي تقدمه المبادرة.<br><br>
+                    عُقدت الجلسة الأولى مساء أمس، وركزت على تمكين المشاركين من استخدام منصة “نفاذ” للوصول إلى الخدمات الحكومية بشكل فعّال، باعتبارها إحدى المنصات الحكومية الرئيسية. <br><br>
+                    يأتي البرنامج هذا العام بالتعاون مع وزارة الثقافة وبدعم من بيت الثقافة.
+                    </p>
+                <p class="event-date" data-en="Oct 13, 2024" data-ar="13 أكتوبر 2024"> 13 أكتوبر 2024</p>
+            </div>
+        </div>
+        <div class="new-vector">
+
+        </div>
+    </section>
+
     <!-- =========================
          Follow Us Section
     ============================== -->
     <section id="follow" class="section follow">
         <div class="content">
+<<<<<<< HEAD:landing_page/index.html
             <!-- <h2 data-en="Follow Us for More" data-ar="تابعنا للمزيد">Follow Us for More <span class="B1" data-en="Updates" data-ar="التحديثات">Updates</span></h2>
+=======
+            <h2 data-en="Follow Us for More" data-ar="للمزيد من ">FOLLOW US FOR MORE <span class="B1" data-en="Updates" data-ar="الأخبار">UPDATES</span></h2>
+>>>>>>> fe73211d31dd552492e593d550c66685106f5246:index.html
             <div class="social-links">
-                <a href="#">
+                <a href="https://x.com/bytechs_?s=21">
                     <img src="assets/X.png" alt="Twitter">
                 </a>
-                <a href="#">
+                <a href="https://whatsapp.com/channel/0029VaX9JcJA89MlFpx45R1h">
                     <img src="assets/Whatsup.png" alt="WhatsApp">
                 </a>
-                <a href="#">
+                <a href="https://www.instagram.com/bytechs_?igsh=bGw4dHB0MHlqanhu">
                     <img src="assets/insta.png" alt="Instagram">
                 </a>
-                <a href="#">
+                <a href="https://www.linkedin.com/company/bytechsbayan/">
                     <img src="assets/link.png" alt="LinkedIn">
                 </a> -->
             </div>
         </div>
+<<<<<<< HEAD:landing_page/index.html
         <!-- Tweets Section -->
         <div class="tweets-container">
             <!-- <div class="tweet">
@@ -154,6 +188,10 @@
                 <p data-en="Here is another tweet content..." data-ar="هنا محتوى تغريدة أخرى...">Here is another tweet content...</p>
                 <p data-en="05:45 AM - Oct 13, 2024" data-ar="05:45 صباحًا - 13 أكتوبر 2024">05:45 AM - Oct 13, 2024</p>
             </div> -->
+=======
+        <div class="follow-image">
+            <img src="images/follow-image.JPG">
+>>>>>>> fe73211d31dd552492e593d550c66685106f5246:index.html
         </div>
     </section>
     
