@@ -3,14 +3,14 @@
 ================================= */
 @font-face {
     font-family: "29LT Zawi";
-    src: url("assets/Fonts/alfont_com_29LTZawi-Bold.ttf") format("woff2");
+    src: url("/landing_page/assets/Fonts/alfont_com_29LTZawi-Bold.ttf") format("woff2");
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: "29LT ZawiBold";
-    src: url("assets/Fonts/alfont_com_29LTZawi-Black-1.ttf") format("woff2");
+    src: url("/landing_page/assets/Fonts/alfont_com_29LTZawi-Black-1.ttf") format("woff2");
     font-weight: bold;
     font-style: bold;
 }
