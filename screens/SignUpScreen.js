@@ -13,7 +13,8 @@ import firestore from '@react-native-firebase/firestore';
 import CountryPicker from 'react-native-country-picker-modal';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-const SignUpScreen = ({ navigation }) => {
+const SignUpScreen = ({ navigation, route }) => {
+  const selectedInterests = route?.params?.selectedInterests || [];
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [countryCode] = useState('SA');
@@ -74,6 +75,7 @@ const SignUpScreen = ({ navigation }) => {
         FullName: fullName,
         Email: user.email,
         Phone: `+${callingCode}${phoneNumber}`,
+        Interests: selectedInterests,
         CreatedAt: firestore.FieldValue.serverTimestamp(),
       });
 
