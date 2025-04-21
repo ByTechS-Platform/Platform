@@ -1,11 +1,6 @@
 import React, { useState } from 'react';
 import {
-  View,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  Alert,
-  StyleSheet,
+  View, Text, TextInput, TouchableOpacity, Alert, StyleSheet,
 } from 'react-native';
 import auth from '@react-native-firebase/auth';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -13,7 +8,6 @@ import Icon from 'react-native-vector-icons/Ionicons';
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [rememberMe, setRememberMe] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
   const handleLogin = async () => {
@@ -23,28 +17,20 @@ const LoginScreen = ({ navigation }) => {
     }
 
     try {
-      await auth().signInWithEmailAndPassword(email, password);
+      const userCredential = await auth().signInWithEmailAndPassword(email, password);
+      const user = userCredential.user;
+
+      if (!user.emailVerified) {
+        await auth().signOut();
+        Alert.alert('Email Not Verified', 'Please verify your email first.');
+        return;
+      }
+
       Alert.alert('Success', 'You are now logged in!');
       navigation.navigate('Home');
     } catch (error) {
       Alert.alert('Login Error', error.message);
     }
-  };
-
-  const handleForgotPassword = () => {
-    if (!email) {
-      Alert.alert('Forgot Password', 'Please enter your email first');
-      return;
-    }
-
-    auth()
-      .sendPasswordResetEmail(email)
-      .then(() => {
-        Alert.alert('Email Sent', 'Check your inbox to reset your password');
-      })
-      .catch((error) => {
-        Alert.alert('Error', error.message);
-      });
   };
 
   return (
@@ -66,9 +52,9 @@ const LoginScreen = ({ navigation }) => {
       <TextInput
         style={styles.input}
         placeholder="Email"
-        keyboardType="email-address"
         value={email}
         onChangeText={setEmail}
+        keyboardType="email-address"
       />
 
       <View style={styles.passwordContainer}>
@@ -84,23 +70,9 @@ const LoginScreen = ({ navigation }) => {
         </TouchableOpacity>
       </View>
 
-      <View style={styles.optionsRow}>
-        <TouchableOpacity
-          style={styles.rememberMe}
-          onPress={() => setRememberMe(!rememberMe)}
-        >
-          <Icon
-            name={rememberMe ? 'checkbox' : 'square-outline'}
-            size={20}
-            color="#5c4dd2"
-          />
-          <Text style={styles.rememberMeText}> Remember Me</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity onPress={handleForgotPassword}>
-          <Text style={styles.forgotPassword}>Forgot Password?</Text>
-        </TouchableOpacity>
-      </View>
+      <TouchableOpacity onPress={() => navigation.navigate('ForgotPasswordEmail')}>
+        <Text style={styles.forgotPassword}>Forgot Password?</Text>
+      </TouchableOpacity>
 
       <TouchableOpacity style={styles.button} onPress={handleLogin}>
         <Text style={styles.buttonText}>Login</Text>
@@ -110,12 +82,7 @@ const LoginScreen = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    padding: 24,
-    flex: 1,
-    backgroundColor: '#fff',
-    paddingTop: 60,
-  },
+  container: { padding: 24, flex: 1, backgroundColor: '#fff', paddingTop: 60 },
   title: {
     fontSize: 24,
     fontWeight: '800',
@@ -150,7 +117,7 @@ const styles = StyleSheet.create({
   },
   input: {
     borderWidth: 1,
-    borderColor: '#ddd',
+    borderColor: '#ccc',
     borderRadius: 8,
     padding: 12,
     marginBottom: 12,
@@ -159,41 +126,25 @@ const styles = StyleSheet.create({
   passwordContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    borderColor: '#ddd',
+    borderColor: '#ccc',
     borderWidth: 1,
     borderRadius: 8,
-    paddingHorizontal: 12,
-    marginBottom: 12,
-  },
-  optionsRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 16,
-  },
-  rememberMe: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  rememberMeText: {
-    fontSize: 14,
-    color: '#333',
+    paddingHorizontal: 10,
+    marginBottom: 10,
   },
   forgotPassword: {
-    fontSize: 14,
     color: '#5c4dd2',
+    textAlign: 'right',
+    marginBottom: 20,
   },
   button: {
     backgroundColor: '#5c4dd2',
-    paddingVertical: 14,
+    padding: 14,
     borderRadius: 8,
+    alignItems: 'center',
   },
-  buttonText: {
-    color: '#fff',
-    fontWeight: '600',
-    textAlign: 'center',
-    fontSize: 16,
-  },
+  buttonText: { color: '#fff', fontWeight: 'bold' },
 });
 
 export default LoginScreen;
+

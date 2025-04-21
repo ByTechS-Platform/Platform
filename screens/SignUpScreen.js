@@ -16,8 +16,8 @@ import Icon from 'react-native-vector-icons/Ionicons';
 const SignUpScreen = ({ navigation }) => {
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
-  const [countryCode, setCountryCode] = useState('SA');
-  const [callingCode, setCallingCode] = useState('966');
+  const [countryCode] = useState('SA');
+  const [callingCode] = useState('966');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -30,17 +30,12 @@ const SignUpScreen = ({ navigation }) => {
     match: false,
   });
 
-  const onSelectCountry = (country) => {
-    setCountryCode(country.cca2);
-    setCallingCode(country.callingCode[0]);
-  };
-
   const validatePassword = (pwd, confirmPwd) => {
     const validations = {
       length: pwd.length > 8,
       digit: /\d/.test(pwd),
       capital: /[A-Z]/.test(pwd),
-      special: /[@#$]/.test(pwd),
+      special: /[^A-Za-z0-9]/.test(pwd),
       match: pwd === confirmPwd,
     };
     setValidation(validations);
@@ -50,6 +45,18 @@ const SignUpScreen = ({ navigation }) => {
   const handleSignUp = async () => {
     if (!fullName || !email || !phoneNumber || !password || !confirmPassword) {
       Alert.alert('Error', 'Please fill all fields.');
+      return;
+    }
+
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+    if (!emailRegex.test(email)) {
+      Alert.alert('Invalid Email', 'Please enter a valid Gmail address.');
+      return;
+    }
+
+    const saPhoneRegex = /^[5][0-9]{8}$/;
+    if (!saPhoneRegex.test(phoneNumber)) {
+      Alert.alert('Invalid Phone Number', 'Enter a valid Saudi number (e.g., 512345678).');
       return;
     }
 
@@ -70,16 +77,18 @@ const SignUpScreen = ({ navigation }) => {
         CreatedAt: firestore.FieldValue.serverTimestamp(),
       });
 
-      Alert.alert('Success', 'Account created successfully!');
-      navigation.navigate('Login');
+      await user.sendEmailVerification();
+      await auth().signOut();
+
+      navigation.navigate('EmailVerification');
     } catch (error) {
       Alert.alert('Sign Up Error', error.message);
     }
   };
 
   const getIndicator = (condition, text) => (
-    <Text style={{ color: condition ? 'green' : 'gray' }}>
-      {condition ? '✅' : '☑️'} {text}
+    <Text style={{ color: condition ? 'green' : 'red' }}>
+      {condition ? '✅' : '❌'} {text}
     </Text>
   );
 
@@ -108,7 +117,7 @@ const SignUpScreen = ({ navigation }) => {
 
       <TextInput
         style={styles.input}
-        placeholder="Email"
+        placeholder="Gmail Address"
         keyboardType="email-address"
         value={email}
         onChangeText={setEmail}
@@ -116,15 +125,15 @@ const SignUpScreen = ({ navigation }) => {
 
       <View style={styles.phoneWrapper}>
         <CountryPicker
-          withFilter
+          countryCode="SA"
+          withFilter={false}
           withFlag
           withCallingCode
           withEmoji
-          countryCode={countryCode}
-          onSelect={onSelectCountry}
+          onSelect={() => {}}
           containerButtonStyle={styles.countryPicker}
         />
-        <Text style={styles.plus}>+{callingCode}</Text>
+        <Text style={styles.plus}>+966</Text>
         <TextInput
           style={styles.phoneInput}
           placeholder="Phone number"
@@ -165,7 +174,7 @@ const SignUpScreen = ({ navigation }) => {
         {getIndicator(validation.length, 'Password Length > 8')}
         {getIndicator(validation.digit, 'At least 1 digit')}
         {getIndicator(validation.capital, 'At least 1 capital letter')}
-        {getIndicator(validation.special, 'At least 1 special char (@, #, $)')}
+        {getIndicator(validation.special, 'At least 1 special character')}
         {getIndicator(validation.match, 'Password matches confirm password')}
       </View>
 
@@ -270,3 +279,4 @@ const styles = StyleSheet.create({
 });
 
 export default SignUpScreen;
+
